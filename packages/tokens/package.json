@@ -9,7 +9,7 @@
     "files": ["dist"],
     "sideEffects": ["dist/styles.css"],
     "scripts": {
-      "build": "tsup src/index.ts --dts --format esm --clean && copy src\\styles.css dist\\styles.css",
+      "build": "tsup src/index.ts --dts --format esm --clean && node -e \"require('fs').mkdirSync('dist',{recursive:true});require('fs').copyFileSync('src/styles.css','dist/styles.css')\"",
       "typecheck": "tsc --noEmit",
       "lint": "echo ok"
     },
