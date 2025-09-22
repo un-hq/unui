@@ -1,6 +1,6 @@
 
 > @unhq/tokens@0.0.0 build C:\Users\nahar\Desktop\unhq\unui\packages\tokens
-> tsup src/index.ts --dts --format esm --clean && copy src\styles.css dist\styles.css
+> tsup src/index.ts --dts --format esm --clean && node -e "require('fs').mkdirSync('dist',{recursive:true});require('fs').copyFileSync('src/styles.css','dist/styles.css')"
 
 [34mCLI[39m Building entry: src/index.ts
 [34mCLI[39m Using tsconfig: tsconfig.json
@@ -9,8 +9,7 @@
 [34mCLI[39m Cleaning output folder
 [34mESM[39m Build start
 [32mESM[39m [1mdist\index.js [22m[32m0 B[39m
-[32mESM[39m ⚡️ Build success in 304ms
+[32mESM[39m ⚡️ Build success in 52ms
 [34mDTS[39m Build start
-[32mDTS[39m ⚡️ Build success in 901ms
+[32mDTS[39m ⚡️ Build success in 716ms
 [32mDTS[39m [1mdist\index.d.ts [22m[32m64.00 B[39m
-        1 file(s) copied.
