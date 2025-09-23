@@ -3,4 +3,14 @@ dist
 .storybook
 storybook-static
 .vscode
-.DS_Store
+.DS_Store# Build outputs
+dist/
+build/
+*.log
+
+# Turbo cache & logs
+.turbo/
+**/.turbo/
+
+# Ladle/Vite docs build
+apps/docs/build/
