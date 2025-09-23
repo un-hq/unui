@@ -1,4 +1,4 @@
-# @unhq/ui
+# @unhq/tailwind-preset
 
 ## 1.0.0
 
@@ -7,9 +7,3 @@
 - 137d47c: Y
 - 018be71: first
 - c99afab: Initial
-
-## 0.1.0
-
-### Minor Changes
-
--
