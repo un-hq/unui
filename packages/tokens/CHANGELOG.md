@@ -1,5 +1,11 @@
 # @unhq/tokens
 
+## 2.0.0
+
+### Major Changes
+
+- d89778e: Edit
+
 ## 1.0.0
 
 ### Major Changes
