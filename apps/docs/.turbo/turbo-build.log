@@ -1,0 +1,23 @@
+
+> @unhq/docs@ build C:\Users\nahar\Desktop\unhq\unui\apps\docs
+> ladle build
+
+[36mvite v5.4.20 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 179 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../../../../../../../apps/docs/build/[22m[32massets/manifest-B-VxemCC.webmanifest  [39m[1m[2m  0.14 kB[22m[1m[22m
+[2m../../../../../../../../apps/docs/build/[22m[32massets/favicon-gjFwcFbF.svg           [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[32mindex.html                            [39m[1m[2m  1.20 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[32massets/touch-icon-ByyUZD7t.png        [39m[1m[2m  6.69 kB[22m[1m[22m
+[2m../../../../../../../../apps/docs/build/[22m[35massets/index-Bsr3yfDJ.css             [39m[1m[2m 11.40 kB[22m[1m[22m[2m │ gzip:   2.81 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[36massets/empty-module-BIHI7g3E.js       [39m[1m[2m  0.03 kB[22m[1m[22m[2m │ gzip:   0.05 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[36massets/button.stories-DJPUAeQB.js     [39m[1m[2m  0.71 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[36massets/form.stories-CusLwvUS.js       [39m[1m[2m  1.62 kB[22m[1m[22m[2m │ gzip:   0.68 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[36massets/index-KW7ryNP-.js              [39m[1m[2m109.80 kB[22m[1m[22m[2m │ gzip:  36.74 kB[22m
+[2m../../../../../../../../apps/docs/build/[22m[36massets/index-CV8xnvaO.js              [39m[1m[2m384.03 kB[22m[1m[22m[2m │ gzip: 122.52 kB[22m
+[32m✓ built in 2.28s[39m
+✓  Meta.json successfully created.
+⏱️  Ladle finished the production build in 2s producing 0.49 MiB of assets.
+💡 Tip: Run "ladle preview" to check that the build works!
