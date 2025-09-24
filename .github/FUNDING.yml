@@ -1,0 +1,21 @@
+# GitHub funding configuration
+# See: https://docs.github.com/sponsors
+# Add the platforms you use below, uncommenting/editing as needed.
+
+# GitHub Sponsors username (organization or user)
+github: un-hq
+
+# Other platforms (uncomment and fill if you use them)
+# patreon: your-patreon-id
+# open_collective: your-collective
+# ko_fi: your-kofi-username
+# tidelift: npm/@unhq/ui
+# community_bridge: project-name
+# liberapay: your-liberapay
+# issuehunt: your-issuehunt
+# otechie: your-otechie
+# lfx_crowdfunding: your-project
+# Custom links (array of URLs)
+custom:
+  - #https://buymeacoffee.com/your-handle
+  - #https://opencollective.com/your-collective
