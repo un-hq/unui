@@ -19,6 +19,8 @@
   "dependencies": {
     "@unhq/ui": "workspace:*",
     "@unhq/tokens": "workspace:*",
-    "@unhq/tailwind-preset": "workspace:*"
+    "@unhq/tailwind-preset": "workspace:*",
+    "react": "18.x",
+    "react-dom": "18.x"
   }
 }

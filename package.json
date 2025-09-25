@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
-  "engines": { "node": ">=18.18 <23" ,"pnpm": ">=9 <11"},
-  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=18.18 <23",
+    "pnpm": ">=9 <11"
+  },
+  "packageManager": "pnpm@10.17.1",
   "scripts": {
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
@@ -16,18 +19,19 @@
     "docs": "pnpm -C apps/docs dev",
     "docs:build": "pnpm -C apps/docs build",
     "docs:preview": "pnpm -C apps/docs preview",
-    "size": "size-limit"
+    "size": "size-limit",
+    "size:ui": "pnpm -C packages/ui size-limit"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
+    "@size-limit/preset-small-lib": "^11.1.6",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "size-limit": "^11.1.6",
     "tsup": "^8.5.0",
     "turbo": "^2.5.6",
-    "typescript": "^5.9.2",
-    "size-limit": "^11.1.6",
-    "@size-limit/preset-small-lib": "^11.1.6"
+    "typescript": "^5.9.2"
   },
   "pnpm": {
     "overrides": {
