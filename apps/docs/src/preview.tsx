@@ -1,24 +1,35 @@
-// apps/docs/src/preview.tsx
-import type { GlobalProvider } from "@ladle/react";
-// If your docs need additional CSS (e.g., tokens CSS), import it here:
-// import "@unhq/tokens/dist/styles.css";
-// import "./globals.css";
+import React from "react";
+import type { GlobalProvider, Story } from "@ladle/react";
+import "@unhq/tokens/styles.css"; // ensure tokens are available in all stories
+import "../src/styles.css"; // (optional) your docs-specific css
+
+export const globalState = {
+  mode: "light" as "light" | "dark",
+  theme: "" as "" | "theme-brandA" | "theme-brandB",
+};
+
+export const Controls: React.FC = () => null;
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
-  const html = document.documentElement;
+  React.useEffect(() => {
+    const html = document.documentElement;
 
-  // 1) Light/Dark toggle from Ladle's globalState
-  html.classList.toggle("dark", globalState.mode === "dark");
+    // remove previous theme & dark classes
+    html.className = html.className
+      .split(" ")
+      .filter((c) => c && c !== "dark" && !c.startsWith("theme-"))
+      .join(" ");
 
-  // 2) (Optional) support theme variants like "theme-ocean"
-  const keep = html.className
-    .split(" ")
-    .filter((c) => !c.startsWith("theme-") && c !== "dark")
-    .join(" ")
-    .trim();
-  html.className = keep;
-  // Example if you expose a theme selector in Ladle globals:
-  // if (globalState.theme) html.classList.add(globalState.theme);
+    if (globalState.mode === "dark") {
+      html.classList.add("dark");
+    }
+    if (globalState.theme) {
+      html.classList.add(globalState.theme);
+    }
+  }, [globalState.mode, globalState.theme]);
 
-  return children;
+  return <>{children}</>;
 };
+
+// Optional: toggle viewport background to follow tokens
+export const decorators = [] as Story[];

@@ -1,65 +1,75 @@
-# UnUI Theming Contract
+# Theming Contract
 
-This document describes how tokens, Tailwind preset, and components agree on **naming**, **scope**, and **override rules** so themes stay consistent across apps.
+This document defines how **design tokens** power Tailwind utilities and components.
 
-## Layers
-1. **Tokens (`@unhq/tokens`)**
-   - Provides CSS variables (custom properties).
-   - Split into primitive (raw hue/sat/light) and semantic (bg/fg/muted/accent/etc.).
-   - Example:
-     ```css
-     :root {
-       --radius: 0.5rem;
-       --bg: 0 0% 100%;
-       --fg: 222.2 84% 4.9%;
-       --muted: 210 40% 96.1%;
-       --accent: 221.2 83.2% 53.3%;
-     }
-     html.dark {
-       --bg: 222.2 84% 4.9%;
-       --fg: 0 0% 98%;
-       --muted: 217.2 32.6% 17.5%;
-       --accent: 217.2 91.2% 59.8%;
-     }
-     ```
+## 1) Tokens (`@unhq/tokens`)
 
-2. **Preset (`@unhq/tailwind-preset`)**
-   - Maps CSS variables → Tailwind theme tokens.
-   - Ensures utilities like `bg-bg`, `text-fg`, `rounded-[var(--radius)]` resolve consistently.
-   - Consumers include the preset in `tailwind.config.ts` and import the tokens CSS once.
+- CSS variables for **light** and **dark** under `:root` and `.dark`.
+- Examples:
+  - `--bg`, `--fg`
+  - `--muted`, `--muted-foreground`
+  - `--accent`, `--accent-foreground`
+  - `--radius-sm|md|lg`
+  - `--ring`, `--ring-offset`
+  - `--shadow-sm|md|lg`
+  - `--space-1..n` (optional spacing scale)
 
-3. **Components (`@unhq/ui`)**
-   - Use Tailwind class utilities derived from the preset (no hardcoded hex).
-   - Never reference private variables directly; rely on Tailwind theme keys.
-   - Variants implemented via `class-variance-authority` + `tailwind-merge`.
+`styles.css` includes both themes and should be imported once in the app.
 
-## Scoping & Overrides
-- Theme scope is applied via classes on `html` or a container:
-  ```html
-  <html class="dark theme-unhq">
-  ```
-- App-level overrides define a **theme namespace**:
-  ```css
-  .theme-brand-x {
-    --radius: 0.75rem;
-    --accent: 271 81% 56%;
-  }
-  ```
-- Any descendant component picks up new values automatically.
+## 2) Tailwind preset (`@unhq/tailwind-preset`)
 
-## Adding New Tokens
-- Prefer semantic names used by components (`--accent`, `--muted`, `--destructive`, etc.).
-- Update `@unhq/tailwind-preset` mapping so Tailwind utilities stay in sync.
-- Document the new variable in this contract.
+Maps tokens to Tailwind theme keys:
 
-## Backwards Compatibility
-- Avoid renaming or removing variables; deprecate with a release note.
-- If you must change a variable, provide a fallback or a migration note in the changelog.
+```ts
+theme: {
+  colors: {
+    bg: 'var(--bg)',
+    fg: 'var(--fg)',
+    muted: 'var(--muted)',
+    'muted-foreground': 'var(--muted-foreground)',
+    accent: 'var(--accent)',
+    'accent-foreground': 'var(--accent-foreground)',
+    ring: 'var(--ring)',
+  },
+  borderRadius: {
+    sm: 'var(--radius-sm)',
+    md: 'var(--radius-md)',
+    lg: 'var(--radius-lg)',
+  },
+  boxShadow: {
+    sm: 'var(--shadow-sm)',
+    md: 'var(--shadow-md)',
+    lg: 'var(--shadow-lg)',
+  },
+}
+```
 
-## Example: Button
-- Semantic references:
-  - Default: `bg-accent text-accent-foreground`
-  - Ghost: `bg-transparent hover:bg-muted`
-  - Destructive: `bg-destructive text-destructive-foreground`
+Utilities like `bg-bg`, `text-fg`, `border-muted`, `shadow-md`, `ring-1` now resolve to tokens.
 
-As long as the theme defines `--accent`, `--accent-foreground`, `--muted`, etc., the Button will render correctly in any theme scope.
+## 3) Components (`@unhq/ui`)
+
+- Never hard‑code colors or radii.
+- Use only utilities derived from the preset (e.g., `bg-bg`, `text-fg`, `rounded-md`, `ring-ring`).
+- Variant systems (CVA) can switch classes, but the classes must be token-backed.
+
+## 4) Adding/changing tokens
+
+1. Add variable(s) in **tokens** (light + dark).
+2. Map variable(s) in **preset**.
+3. Refactor UI to use the mapped utilities.
+4. Add/adjust **Ladle stories** to visualize.
+5. Create a **Changeset** (minor for additive, major for rename/removal).
+
+## 5) Validating in Ladle
+
+Use controls to toggle `mode: light/dark` and a custom theme class (`theme-*`). Visual stories exist for:
+- Colors
+- Typography
+- Radii
+- Spacing
+- Borders
+- Rings
+- Shadows
+- Z-index
+
+Each story renders a grid preview for quick regression checks.
