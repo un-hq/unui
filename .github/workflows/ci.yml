@@ -7,16 +7,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Install pnpm. Do NOT pass "version" — the action will honor package.json's packageManager (pnpm@10.15.0)
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '18'
           cache: 'pnpm'
 
-      - run: pnpm i --frozen-lockfile
-      - run: pnpm -w build
-      - run: pnpm -w typecheck
+      # Honor package.json's packageManager (pnpm@10.x); don't pin here.
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: true
+
+      - name: Typecheck
+        run: pnpm -w typecheck
+
+      - name: Build packages
+        run: pnpm -w build
+
+      - name: Build docs (Ladle)
+        run: pnpm -C apps/docs build
+
+      - name: Size-limit (@unhq/ui)
+        run: pnpm -C packages/ui size
+
+      # Guard: ensure publish would succeed (never publishes in CI)
+      - name: Publish dry run (no actual publish)
+        if: github.event_name == 'push'
+        run: pnpm -w publish --dry-run --no-git-checks

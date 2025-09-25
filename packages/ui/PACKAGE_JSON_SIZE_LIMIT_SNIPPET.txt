@@ -1,0 +1,10 @@
+// Add to packages/ui/package.json
+{
+  "devDependencies": {
+    "size-limit": "^11.1.6",
+    "@size-limit/preset-small-lib": "^11.1.6"
+  },
+  "scripts": {
+    "size": "size-limit"
+  }
+}
