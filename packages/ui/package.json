@@ -29,14 +29,17 @@
     "build": "tsup src/index.ts --dts --format esm --clean",
     "typecheck": "tsc --noEmit",
     "lint": "echo ok",
-    "size": "size-limit"
+    "size": "size-limit",
+    "analyze:size": "size-limit --why"
   },
   "devDependencies": {
+    "@size-limit/esbuild": "^11.2.0",
+    "@size-limit/preset-small-lib": "^11.1.4",
     "@types/react": "^18.3.3",
+    "esbuild": "^0.24.2",
+    "size-limit": "^11.2.0",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.2",
-    "size-limit": "^11.1.6",
-    "@size-limit/preset-small-lib": "^11.1.6"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",

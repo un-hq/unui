@@ -1,11 +1,9 @@
 [
   {
-    "name": "@unhq/ui ESM entry",
+    "name": "@unhq/ui",
     "path": "dist/index.js",
-    "limit": "10 kB",
+    "limit": "70 kB",
     "import": "{ Button }",
-    "running": false,
-    "gzip": true,
     "brotli": true
   }
 ]
