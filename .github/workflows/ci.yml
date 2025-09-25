@@ -39,4 +39,4 @@ jobs:
       # Guard: ensure publish would succeed (never publishes in CI)
       - name: Publish dry run (no actual publish)
         if: github.event_name == 'push'
-        run: pnpm -w publish --dry-run --no-git-checks
+        run: pnpm -r --filter "@unhq/**" publish --dry-run --no-git-checks --access public --ignore-scripts
