@@ -4,17 +4,19 @@
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
+  "engines": { "node": ">=18.18 <23" ,"pnpm": ">=9 <11"},
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
     "changeset": "changeset",
-    "release": "changeset version && pnpm -w install --no-frozen-lockfile && changeset publish",
+    "release": "changeset version && pnpm -w i && pnpm -w build && changeset publish",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "pnpm -C apps/docs dev",
     "docs:build": "pnpm -C apps/docs build",
-    "docs:preview": "pnpm -C apps/docs preview"
+    "docs:preview": "pnpm -C apps/docs preview",
+    "size": "size-limit"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
@@ -23,7 +25,9 @@
     "@types/react-dom": "^19.1.9",
     "tsup": "^8.5.0",
     "turbo": "^2.5.6",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "size-limit": "^11.1.6",
+    "@size-limit/preset-small-lib": "^11.1.6"
   },
   "pnpm": {
     "overrides": {

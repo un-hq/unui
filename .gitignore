@@ -1,16 +1,93 @@
-node_modules
-dist
-.storybook
-storybook-static
-.vscode
-.DS_Store# Build outputs
+# ---- UnUI Monorepo .gitignore ----
+# This file is tailored for a pnpm + turbo + tsup monorepo
+# Packages publish from dist to npm, but dist is not committed to Git.
+
+# -----------------------------
+# Node / package managers
+# -----------------------------
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# lockfiles: keep pnpm-lock.yaml committed; ignore others if they appear
+# (Remove these lines if you intentionally support yarn/npm in this repo)
+package-lock.json
+yarn.lock
+
+# -----------------------------
+# Build artifacts (never commit)
+# -----------------------------
 dist/
 build/
 *.log
+*.log.*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Turbo cache & logs
+# TypeScript
+*.tsbuildinfo
+
+# tsup / rollup / esbuild caches
+*.cache/
+.esbuild/
+
+# -----------------------------
+# Turbo (cache & logs)
+# -----------------------------
 .turbo/
 **/.turbo/
 
+# -----------------------------
+# App frameworks
+# -----------------------------
+# Next.js (if/when you add a Next app)
+.next/
+
 # Ladle/Vite docs build
 apps/docs/build/
+
+# Storybook (if used later)
+.storybook/
+storybook-static/
+
+# -----------------------------
+# Env / secrets (do not commit)
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# Tools
+# -----------------------------
+.eslintcache
+.stylelintcache
+
+# -----------------------------
+# OS / editor junk
+# -----------------------------
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+*.swp
+
+# -----------------------------
+# Keep these committed (DO NOT ignore)
+# -----------------------------
+# .changeset/       # versioning & release notes
+# packages/**/README.md
+# packages/**/package.json
+# packages/**/tsconfig.json
+# packages/**/src/**

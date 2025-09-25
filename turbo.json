@@ -3,7 +3,6 @@
   "tasks": {
     "build": { "outputs": ["dist/**"] },
     "typecheck": {},
-    "lint": {},
-    "dev": { "cache": false, "persistent": true }
+    "lint": {}
   }
 }
