@@ -1,0 +1,32 @@
+# ---- UnUI Monorepo .gitattributes ----
+# Normalize line endings across OSes:
+* text=auto eol=lf
+
+# Treat common binary formats as binary (no diff/merge)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# Lockfiles: keep CRLF noise out and disable automatic merging
+pnpm-lock.yaml -merge
+yarn.lock -merge
+package-lock.json -merge
+
+# GitHub Linguist: hide generated outputs from language stats & diffs
+dist/** linguist-generated
+build/** linguist-generated
+apps/docs/build/** linguist-generated
+
+# Improve diff for some text formats
+*.md diff=markdown
+*.css diff=css
+*.scss diff=css
+
+# End
