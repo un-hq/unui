@@ -3,12 +3,15 @@
   "private": false,
   "version": "2.0.0",
   "type": "module",
+  "main": "./dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0",
@@ -18,15 +21,23 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm --clean",
     "typecheck": "tsc --noEmit",
-    "lint": "echo ok"
+    "lint": "echo ok",
+    "size": "size-limit",
+    "analyze:size": "size-limit --why"
   },
   "devDependencies": {
+    "@size-limit/esbuild": "^11.2.0",
+    "@size-limit/preset-small-lib": "^11.1.4",
     "@types/react": "^18.3.3",
+    "esbuild": "^0.24.2",
+    "size-limit": "^11.2.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   },
