@@ -29,6 +29,8 @@ export {
 } from "./components/select";
 export type { SelectTriggerProps } from "./components/select";
 
+export { cn } from "./utils/cn";
+
 // avatar
 export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
 

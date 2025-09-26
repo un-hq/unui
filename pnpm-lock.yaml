@@ -75,12 +75,25 @@ importers:
         version: 5.9.2
 
   packages/blocks:
+    dependencies:
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@types/react':
+        specifier: ^18.2.66
+        version: 18.3.24
+      '@unhq/ui':
+        specifier: workspace:*
+        version: link:../ui
       tsup:
-        specifier: ^8.0.0
+        specifier: ^8.5.0
         version: 8.5.0(@swc/core@1.13.5)(jiti@2.6.0)(postcss@8.5.6)(typescript@5.9.2)
       typescript:
-        specifier: ^5.6.0
+        specifier: ^5.9.2
         version: 5.9.2
 
   packages/tailwind-preset:

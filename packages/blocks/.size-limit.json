@@ -1,0 +1,10 @@
+[
+    {
+      "name": "@unhq/blocks (AuthCard import)",
+      "path": "../ui/dist/index.js",
+      "import": "{ Card, Button, Input, Label, Separator }",
+      "limit": "100 kB",
+      "brotli": true
+    }
+  ]
+  
