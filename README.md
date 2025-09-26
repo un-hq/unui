@@ -1,5 +1,9 @@
 # unuı — UnHQ UI Monorepo
 
+[![CI](https://github.com/un-hq/unui/actions/workflows/ci.yml/badge.svg)](…)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![pnpm](https://img.shields.io/badge/pm-pnpm-orange.svg)](https://pnpm.io)
+
 A lightweight, token‑driven React + Tailwind component system.
 
 ## Packages
