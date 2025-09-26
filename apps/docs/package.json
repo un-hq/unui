@@ -20,6 +20,7 @@
     "@unhq/ui": "workspace:*",
     "@unhq/tokens": "workspace:*",
     "@unhq/tailwind-preset": "workspace:*",
+    "@unhq/blocks": "workspace:*",
     "react": "18.x",
     "react-dom": "18.x"
   }
