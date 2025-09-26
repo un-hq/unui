@@ -89,12 +89,21 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@size-limit/esbuild':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@types/react':
         specifier: ^18.2.66
         version: 18.3.24
       '@unhq/ui':
         specifier: workspace:*
         version: link:../ui
+      esbuild:
+        specifier: ^0.24.2
+        version: 0.24.2
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(@swc/core@1.13.5)(jiti@2.6.0)(postcss@8.5.6)(typescript@5.9.2)

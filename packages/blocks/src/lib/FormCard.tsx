@@ -1,60 +1,53 @@
 import * as React from "react";
-import type { FormHTMLAttributes } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-  Button,
-} from "@unhq/ui";
+import type { FormHTMLAttributes, FormEvent } from "react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button, Input, Label } from "@unhq/ui";
 
 type FormCardProps = {
   title?: string;
   description?: string;
   submitLabel?: string;
-  cancelLabel?: string;
-  /** Show loading state on the submit button */
-  loading?: boolean;
-} & FormHTMLAttributes<HTMLFormElement>; // 👈 extend FORM attributes, not DIV
+  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  className?: string;
+} & Omit<FormHTMLAttributes<HTMLFormElement>, "onSubmit">;
 
 export function FormCard({
-  title,
-  description,
+  title = "Sign in",
+  description = "Use your email and password",
   submitLabel = "Continue",
-  cancelLabel = "Cancel",
-  loading = false,
+  onSubmit,
   className,
   children,
-  onSubmit,
   ...formProps
 }: FormCardProps) {
   return (
     <Card className={className}>
-      {(title || description) && (
-        <CardHeader>
-          {title && <CardTitle>{title}</CardTitle>}
-          {description && <CardDescription>{description}</CardDescription>}
-        </CardHeader>
-      )}
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        {description ? <CardDescription>{description}</CardDescription> : null}
+      </CardHeader>
 
-      <CardContent>
-        {/* Use a real <form/> so onSubmit typings line up */}
-        <form onSubmit={onSubmit} {...formProps}>
-          {children}
-        </form>
-      </CardContent>
+      {/* IMPORTANT: use <form> and forward onSubmit & form props */}
+      <form onSubmit={onSubmit} {...formProps}>
+        <CardContent className="space-y-4">
+          {/* example fields; keep or replace with your slots */}
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" name="email" type="email" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input id="password" name="password" type="password" required />
+          </div>
 
-      <CardFooter className="flex justify-end gap-2">
-        {/* Use a valid variant from @unhq/ui */}
-        <Button type="button" variant="ghost">
-          {cancelLabel}
-        </Button>
-        <Button type="submit" disabled={loading}>
-          {loading ? "Submitting…" : submitLabel}
-        </Button>
-      </CardFooter>
+          {children /* allow extra fields/slots */}
+        </CardContent>
+
+        <CardFooter className="justify-end">
+          <Button type="submit" variant="solid">
+            {submitLabel}
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   );
 }

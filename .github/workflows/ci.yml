@@ -40,3 +40,7 @@ jobs:
       - name: Publish dry run (no actual publish)
         if: github.event_name == 'push'
         run: pnpm -r --filter "@unhq/**" publish --dry-run --no-git-checks --access public --ignore-scripts
+
+      - name: Size-limit (@unhq/blocks)
+        run: pnpm -C packages/blocks size
+  
