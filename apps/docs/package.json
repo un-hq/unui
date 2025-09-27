@@ -22,7 +22,7 @@
     "@unhq/tailwind-preset": "workspace:*",
     "@unhq/tokens": "workspace:*",
     "@unhq/ui": "workspace:*",
-    "react": "18.x",
-    "react-dom": "18.x"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
