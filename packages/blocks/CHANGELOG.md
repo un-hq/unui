@@ -1,5 +1,18 @@
 # @unhq/blocks
 
+## 7.0.0
+
+### Major Changes
+
+- [`120217f`](https://github.com/un-hq/unui/commit/120217f70f308c78c2fd6f4edb72e9ce10842037) Thanks [@un-hq](https://github.com/un-hq)! - Automate
+
+- [`8ee7377`](https://github.com/un-hq/unui/commit/8ee73773e60a41a056d9adc8cae99ff69ce0d06b) Thanks [@un-hq](https://github.com/un-hq)! - Automate
+
+### Patch Changes
+
+- Updated dependencies [[`120217f`](https://github.com/un-hq/unui/commit/120217f70f308c78c2fd6f4edb72e9ce10842037), [`8ee7377`](https://github.com/un-hq/unui/commit/8ee73773e60a41a056d9adc8cae99ff69ce0d06b)]:
+  - @unhq/ui@8.0.0
+
 ## 6.0.0
 
 ### Major Changes
