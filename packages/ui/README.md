@@ -2,6 +2,8 @@
 
 UnHQ’s headless + styled React components, built on **Radix UI**, **Tailwind CSS**, and shadcn-inspired patterns. Tree-shakable, themeable, minimal.
 
+> Quickstart: `pnpm add @unhq/ui` then `import { Button } from "@unhq/ui"`
+
 ## Install
 ```bash
 pnpm add @unhq/ui
