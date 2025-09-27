@@ -1,10 +1,8 @@
 [
   {
-    "name": "@unhq/blocks",
-    "path": "dist/index.js",
-    "import": "{ Card, Button, Input, Label, Separator }",
+    "name": "@unhq/blocks / dist bundle",
+    "path": ["dist/index.js"],
     "limit": "100 kB",
     "brotli": true
   }
 ]
-  

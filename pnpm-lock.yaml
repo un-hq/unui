@@ -92,6 +92,9 @@ importers:
       '@size-limit/esbuild':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@types/react':
         specifier: ^18.2.66
         version: 18.3.24
@@ -99,8 +102,8 @@ importers:
         specifier: workspace:*
         version: link:../ui
       esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
+        specifier: ^0.25.10
+        version: 0.25.10
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0

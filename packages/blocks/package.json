@@ -1,7 +1,10 @@
 {
     "name": "@unhq/blocks",
     "private": false,
-    "version": "3.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "version": "4.0.0",
     "type": "module",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -16,7 +19,7 @@
     ],
     "sideEffects": false,
     "peerDependencies": {
-        "@unhq/ui": ">=0.1.0",
+        "@unhq/ui": ">=5.0.0",
         "react": ">=18",
         "react-dom": ">=18"
     },
@@ -24,14 +27,15 @@
         "build": "tsup src/index.ts --dts --format esm --clean",
         "typecheck": "tsc --noEmit",
         "lint": "echo ok",
-        "size": "size-limit"
+        "size": "pnpm run build && size-limit"
     },
     "devDependencies": {
-        "@size-limit/esbuild": "^11.1.6",
+        "@size-limit/esbuild": "^11.2.0",
+        "@size-limit/file": "^11.2.0",
         "@types/react": "^18.2.66",
         "@unhq/ui": "workspace:*",
-        "esbuild": "^0.25.0",
-        "size-limit": "^11.1.6",
+        "esbuild": "^0.25.10",
+        "size-limit": "^11.2.0",
         "tsup": "^8.5.0",
         "typescript": "^5.9.2"
     }
