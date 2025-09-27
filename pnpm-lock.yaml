@@ -82,6 +82,9 @@ importers:
 
   packages/blocks:
     dependencies:
+      '@unhq/ui':
+        specifier: workspace:*
+        version: link:../ui
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -90,17 +93,14 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@size-limit/esbuild':
-        specifier: ^11.2.0
+        specifier: ^11.1.4
         version: 11.2.0(size-limit@11.2.0)
       '@size-limit/file':
-        specifier: ^11.2.0
+        specifier: ^11.1.4
         version: 11.2.0(size-limit@11.2.0)
       '@types/react':
         specifier: ^18.2.66
         version: 18.3.24
-      '@unhq/ui':
-        specifier: workspace:*
-        version: link:../ui
       esbuild:
         specifier: ^0.25.10
         version: 0.25.10
