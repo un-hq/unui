@@ -15,18 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 1) Install pnpm FIRST so setup-node's cache=pnpm can find it
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1   # <-- match package.json "packageManager": "pnpm@10.17.1"
+          run_install: false
+
+      # 2) Now set up Node and enable pnpm cache
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
-      - name: Activate pnpm via Corepack (respects packageManager)
-        run: |
-          corepack enable
-          corepack install
-          pnpm -v
-          node -v
+      - run: pnpm -v && node -v
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
