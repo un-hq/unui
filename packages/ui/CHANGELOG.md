@@ -1,5 +1,11 @@
 # @unhq/ui
 
+## 6.0.0
+
+### Major Changes
+
+- Fixes
+
 ## 5.0.0
 
 ### Major Changes

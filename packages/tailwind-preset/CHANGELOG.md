@@ -1,5 +1,11 @@
 # @unhq/tailwind-preset
 
+## 5.0.0
+
+### Major Changes
+
+- Fixes
+
 ## 4.0.0
 
 ### Major Changes
