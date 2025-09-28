@@ -8,13 +8,11 @@
   "bugs": { "url": "https://github.com/un-hq/unui/issues" },
   "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "files": ["dist", "package.json", "README.md", "LICENSE"],
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": [ "**/*.css" ],
   "peerDependencies": {
     "react": "^18.3.7",
     "react-dom": "^18.3.7",
@@ -22,7 +20,7 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs"
     },
@@ -31,7 +29,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm --clean",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
     "lint": "echo ok",
     "size": "size-limit",
     "analyze:size": "size-limit --why",
