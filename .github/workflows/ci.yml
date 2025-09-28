@@ -30,6 +30,12 @@ jobs:
       - name: Typecheck
         run: pnpm -w typecheck
 
+      - name: Lint
+        run: pnpm -w lint
+
+      - name: Test
+        run: pnpm -w test
+
       - name: Build packages
         run: pnpm -w build
 

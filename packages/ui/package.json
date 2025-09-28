@@ -1,29 +1,30 @@
 {
   "name": "@unhq/ui",
   "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "version": "8.0.0",
+  "publishConfig": { "access": "public" },
+  "repository": { "type": "git", "url": "https://github.com/un-hq/unui.git", "directory": "packages/ui" },
+  "version": "7.0.0",
+  "homepage": "https://<your-docs-site>/<pkg>",
+  "bugs": { "url": "https://github.com/un-hq/unui/issues" },
   "type": "module",
   "main": "./dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "files": ["dist", "package.json", "README.md", "LICENSE"],
   "sideEffects": [
     "**/*.css"
   ],
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18.3.7",
+    "react-dom": "^18.3.7",
     "tailwindcss": ">=3.4"
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/styles.css",
     "./package.json": "./package.json"
@@ -33,12 +34,14 @@
     "typecheck": "tsc --noEmit",
     "lint": "echo ok",
     "size": "size-limit",
-    "analyze:size": "size-limit --why"
+    "analyze:size": "size-limit --why",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@size-limit/esbuild": "^11.2.0",
     "@size-limit/preset-small-lib": "^11.1.4",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.7",
     "esbuild": "^0.24.2",
     "size-limit": "^11.2.0",
     "tsup": "^8.5.0",

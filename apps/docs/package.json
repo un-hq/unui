@@ -12,8 +12,8 @@
     "@tailwindcss/postcss": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18.3.7",
+    "react-dom": "^18.3.7",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"
   },
@@ -22,7 +22,7 @@
     "@unhq/tailwind-preset": "workspace:*",
     "@unhq/tokens": "workspace:*",
     "@unhq/ui": "workspace:*",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^18.3.7",
+    "react-dom": "^18.3.7"
   }
 }

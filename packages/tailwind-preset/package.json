@@ -1,24 +1,25 @@
 {
   "name": "@unhq/tailwind-preset",
   "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "version": "7.0.0",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/un-hq/unui.git", "directory": "packages/tailwind-preset" },
+  "bugs": { "url": "https://github.com/un-hq/unui/issues" },
+  "homepage": "https://<your-docs-site>/<pkg>",
+  "publishConfig": { "access": "public" },
+  "files": ["dist", "package.json", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "version": "6.0.0",
   "type": "module",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs"
     }
   },
-  "sideEffects": false,
   "peerDependencies": {
     "tailwindcss": "^3.4.0"
   },
