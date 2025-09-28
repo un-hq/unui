@@ -1,60 +1,63 @@
 {
-    "name": "@unhq/blocks",
-    "private": false,
-    "license": "MIT",
-    "publishConfig": {
-        "access": "public"
+  "name": "@unhq/blocks",
+  "version": "9.0.0",
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://<your-docs-site>/<pkg>",
+  "bugs": {
+    "url": "https://github.com/un-hq/unui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/un-hq/unui.git",
+    "directory": "packages/blocks"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/un-hq/unui.git",
-        "directory": "packages/blocks"
-    },
-    "bugs": {
-        "url": "https://github.com/un-hq/unui/issues"
-    },
-    "homepage": "https://<your-docs-site>/<pkg>",
-    "version": "8.0.0",
-    "type": "module",
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts",
-            "require": "./dist/index.cjs"
-        }
-    },
-    "files": [
-        "dist",
-        "package.json",
-        "README.md",
-        "LICENSE"
-    ],
-    "sideEffects": false,
-    "peerDependencies": {
-        "@unhq/ui": "^9.0.0",
-        "react": ">=18",
-        "react-dom": ">=18"
-    },
-    "scripts": {
-        "build": "tsup src/index.ts --dts --format esm --clean",
-        "typecheck": "tsc --noEmit",
-        "lint": "echo ok",
-        "size": "pnpm run build && size-limit"
-    },
-    "devDependencies": {
-        "@size-limit/esbuild": "^11.1.4",
-        "@size-limit/file": "^11.1.4",
-        "@types/react": "18.3.3",
-        "@types/react-dom": "^18.3.0",
-        "@unhq/ui": "workspace:*",
-        "esbuild": "^0.25.10",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "size-limit": "^11.2.0",
-        "tsup": "^8.5.0",
-        "typescript": "^5.6.3"
-    }
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
+  "peerDependencies": {
+    "@unhq/ui": "^10.0.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm --clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo ok",
+    "size": "pnpm run build && size-limit",
+    "prepack": "pnpm build"
+  },
+  "devDependencies": {
+    "@size-limit/esbuild": "^11.1.4",
+    "@size-limit/file": "^11.1.4",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@unhq/ui": "workspace:*",
+    "esbuild": "^0.25.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "size-limit": "^11.2.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.6.3"
+  }
 }

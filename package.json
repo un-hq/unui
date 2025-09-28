@@ -21,9 +21,11 @@
     "docs:build": "pnpm -C apps/docs build",
     "docs:preview": "pnpm -C apps/docs preview",
     "size": "size-limit",
-    "size:ui": "pnpm -C packages/ui size-limit"
+    "size:ui": "pnpm -C packages/ui size-limit",
+    "check:pkg": "pnpm -r --filter ./packages/** exec publint ."
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.7",
     "@size-limit/preset-small-lib": "^11.1.6",
@@ -34,6 +36,7 @@
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.7",
     "jsdom": "^27.0.0",
+    "publint": "^0.3.13",
     "size-limit": "^11.1.6",
     "tsup": "^8.5.0",
     "turbo": "^2.5.6",

@@ -1,45 +1,49 @@
 {
   "name": "@unhq/tokens",
+  "version": "9.0.0",
   "private": false,
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/un-hq/unui.git",
-    "directory": "packages/tokens"
-  },
+  "homepage": "https://<your-docs-site>/<pkg>",
   "bugs": {
     "url": "https://github.com/un-hq/unui/issues"
   },
-  "homepage": "https://<your-docs-site>/<pkg>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/un-hq/unui.git",
+    "directory": "packages/tokens"
+  },
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css.d.ts",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
+    "styles.css",
+    "styles.css.d.ts",
     "package.json",
     "README.md",
     "LICENSE"
   ],
-  "version": "8.0.0",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs"
-    },
-    "./styles.css": "./dist/styles.css"
-  },
   "sideEffects": [
-    "dist/styles.css"
+    "./dist/styles.css",
+    "./styles.css"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --dts --format esm --clean && node -e \"require('fs').mkdirSync('dist',{recursive:true});require('fs').copyFileSync('src/styles.css','dist/styles.css')\"",
+    "build": "tsup src/index.ts --dts --format esm --clean && node -e \"const fs=require('fs'),p='dist';fs.mkdirSync(p,{recursive:true});fs.copyFileSync('src/styles.css',`${p}/styles.css`);fs.writeFileSync(`${p}/styles.css.d.ts`,`declare const css: string;\\nexport default css;\\n`);fs.copyFileSync('src/styles.css','styles.css');fs.writeFileSync('styles.css.d.ts',`declare const css: string;\\nexport default css;\\n`);\"",
     "typecheck": "tsc --noEmit",
-    "lint": "echo ok"
+    "lint": "echo ok",
+    "prepack": "pnpm build"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
