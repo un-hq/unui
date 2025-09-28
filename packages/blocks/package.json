@@ -14,7 +14,7 @@
         "url": "https://github.com/un-hq/unui/issues"
     },
     "homepage": "https://<your-docs-site>/<pkg>",
-    "version": "7.0.0",
+    "version": "8.0.0",
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
@@ -34,7 +34,7 @@
     ],
     "sideEffects": false,
     "peerDependencies": {
-        "@unhq/ui": "^8.0.0",
+        "@unhq/ui": "^9.0.0",
         "react": ">=18",
         "react-dom": ">=18"
     },

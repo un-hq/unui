@@ -1,5 +1,11 @@
 # @unhq/tokens
 
+## 8.0.0
+
+### Major Changes
+
+- Fixes
+
 ## 7.0.0
 
 ### Major Changes

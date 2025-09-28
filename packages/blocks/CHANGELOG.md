@@ -1,5 +1,16 @@
 # @unhq/blocks
 
+## 8.0.0
+
+### Major Changes
+
+- Fixes
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @unhq/ui@9.0.0
+
 ## 7.0.0
 
 ### Major Changes

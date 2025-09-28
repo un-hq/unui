@@ -1,5 +1,11 @@
 # @unhq/ui
 
+## 9.0.0
+
+### Major Changes
+
+- Fixes
+
 ## 8.0.0
 
 ### Major Changes
