@@ -2,9 +2,17 @@
     "name": "@unhq/blocks",
     "private": false,
     "license": "MIT",
-    "publishConfig": { "access": "public" },
-    "repository": { "type": "git", "url": "https://github.com/un-hq/unui.git", "directory": "packages/blocks" },
-    "bugs": { "url": "https://github.com/un-hq/unui/issues" },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/un-hq/unui.git",
+        "directory": "packages/blocks"
+    },
+    "bugs": {
+        "url": "https://github.com/un-hq/unui/issues"
+    },
     "homepage": "https://<your-docs-site>/<pkg>",
     "version": "6.0.0",
     "type": "module",
@@ -18,15 +26,17 @@
             "require": "./dist/index.cjs"
         }
     },
-    "files": ["dist", "package.json", "README.md", "LICENSE"],
+    "files": [
+        "dist",
+        "package.json",
+        "README.md",
+        "LICENSE"
+    ],
     "sideEffects": false,
     "peerDependencies": {
-        "@unhq/ui": ">=7.0.0",
+        "@unhq/ui": "^7",
         "react": ">=18",
         "react-dom": ">=18"
-    },
-    "dependencies": {
-        "@unhq/ui": "workspace:*"
     },
     "scripts": {
         "build": "tsup src/index.ts --dts --format esm --clean",
@@ -37,10 +47,14 @@
     "devDependencies": {
         "@size-limit/esbuild": "^11.1.4",
         "@size-limit/file": "^11.1.4",
-        "@types/react": "^18.3.7",
+        "@types/react": "18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@unhq/ui": "workspace:*",
         "esbuild": "^0.25.10",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "size-limit": "^11.2.0",
         "tsup": "^8.5.0",
-        "typescript": "^5.9.2"
+        "typescript": "^5.6.3"
     }
 }
