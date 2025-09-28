@@ -4,6 +4,12 @@
 
 ### Major Changes
 
+- [`3614333`](https://github.com/un-hq/unui/commit/3614333ad637deae8a59505a7801a19132f97b70) Thanks [@un-hq](https://github.com/un-hq)! - docs/tests polish
+
+## 8.0.0
+
+### Major Changes
+
 - [`120217f`](https://github.com/un-hq/unui/commit/120217f70f308c78c2fd6f4edb72e9ce10842037) Thanks [@un-hq](https://github.com/un-hq)! - Automate
 
 - [`8ee7377`](https://github.com/un-hq/unui/commit/8ee73773e60a41a056d9adc8cae99ff69ce0d06b) Thanks [@un-hq](https://github.com/un-hq)! - Automate

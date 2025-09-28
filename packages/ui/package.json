@@ -9,7 +9,7 @@
     "url": "https://github.com/un-hq/unui.git",
     "directory": "packages/ui"
   },
-  "version": "7.0.0",
+  "version": "8.0.0",
   "homepage": "https://<your-docs-site>/<pkg>",
   "bugs": {
     "url": "https://github.com/un-hq/unui/issues"
