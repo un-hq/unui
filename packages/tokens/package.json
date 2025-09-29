@@ -40,7 +40,7 @@
     "./styles.css"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --dts --format esm --clean && node -e \"const fs=require('fs'),p='dist';fs.mkdirSync(p,{recursive:true});fs.copyFileSync('src/styles.css',`${p}/styles.css`);fs.writeFileSync(`${p}/styles.css.d.ts`,`declare const css: string;\\nexport default css;\\n`);fs.copyFileSync('src/styles.css','styles.css');fs.writeFileSync('styles.css.d.ts',`declare const css: string;\\nexport default css;\\n`);\"",
+    "build": "tsup src/index.ts --dts --format esm --clean && node scripts/postbuild.cjs",
     "typecheck": "tsc --noEmit",
     "lint": "echo ok",
     "prepack": "pnpm build"
