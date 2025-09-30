@@ -2,12 +2,16 @@ name: Release
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
   contents: write
   pull-requests: write
   id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -15,16 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1) Install pnpm FIRST so setup-node's cache=pnpm can find it
+      # 1) Install pnpm so setup-node can cache pnpm
       - uses: pnpm/action-setup@v4
         with:
-          version: 10.17.1   # <-- match package.json "packageManager": "pnpm@10.17.1"
+          version: 10.17.1
           run_install: false
 
-      # 2) Now set up Node and enable pnpm cache
+      # 2) Setup Node + pnpm cache
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
@@ -33,11 +37,19 @@ jobs:
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
+      # Optional gates (fast fail if something broke). Keep or remove as you like.
       - name: Build
         run: pnpm -r build
 
       - name: Size check
         run: pnpm -r size || (echo "Size check failed" && exit 1)
+
+      # Optional: sanity check that the token is present before publish
+      - name: NPM auth check (dry)
+        if: ${{ env.NPM_TOKEN != '' }}
+        run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc && npm whoami || true
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release PR or publish
         uses: changesets/action@v1
